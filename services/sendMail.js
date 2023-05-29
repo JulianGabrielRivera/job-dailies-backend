@@ -8,7 +8,7 @@ module.exports = async (email, subject, text) => {
     secure: false,
     auth: {
       user: "jobdailies@gmail.com",
-      pass: "bbxshrqnkedbdtuv",
+      pass: process.env.PASS,
     },
   });
 
