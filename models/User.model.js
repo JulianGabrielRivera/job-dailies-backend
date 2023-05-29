@@ -17,7 +17,7 @@ const userSchema = new Schema(
     },
     profilePicture: {
       type: String,
-      required: true,
+      //   required: true,
       //   default:
       //     "https://us.123rf.com/450wm/urfandadashov/urfandadashov1806/urfandadashov180600503/150540180-profile-pic-vector-icon-isolated-on-transparent-background-profile-pic-logo-concept.jpg",
     },
@@ -43,6 +43,7 @@ const userSchema = new Schema(
       required: true,
       default: 0,
     },
+    verified: { type: Boolean, default: false },
   },
 
   {

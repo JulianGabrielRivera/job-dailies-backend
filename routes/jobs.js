@@ -125,12 +125,26 @@ router.get(
   isAuthenticated,
   async (req, res, next) => {
     try {
+      let optionsThree = {
+        month: "long",
+      };
+
+      const newDate = new Date();
+
+      const month = newDate.toLocaleString("en-US", optionsThree);
+
       const { id } = req.params;
       const findJob = await Job.findByIdAndUpdate(
         id,
         { phoneFollowUp: true },
         { new: true }
       );
+      const monthToUpdate = await Month.findOneAndUpdate(
+        { month: month },
+        { $inc: { jobsFollowedUp: +1 } },
+        { new: true }
+      );
+      console.log(monthToUpdate);
       const updateFollowUpCount = await User.findByIdAndUpdate(
         req.user._id,
         { $inc: { totalFollowUps: +1 } },

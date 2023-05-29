@@ -10,6 +10,7 @@ const monthsSchema = new Schema({
   jobsApplied: { type: Number, default: 0 },
   jobsRejected: { type: Number, default: 0 },
   daysApplied: { type: Number, default: 1 },
+  jobsFollowedUp: { type: Number, default: 0 },
   lastDateApplied: { type: String },
 });
 
