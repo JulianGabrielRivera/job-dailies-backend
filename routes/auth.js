@@ -170,7 +170,7 @@ router.post("/password-link", async (req, res, next) => {
       });
     }
     console.log(user.email);
-    const url = `${process.env.BASE_URL}/auth/password/${user._id}/${token.token}/`;
+    const url = `${process.env.FRONTEND_URI}/auth/password/${user._id}/${token.token}/`;
     await sendEmail(user.email, "Password Reset", url);
 
     res
